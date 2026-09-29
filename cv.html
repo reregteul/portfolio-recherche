@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Rémi Mas</title>
+  <style>
+    :root {
+      --bg: #edf1f4;
+      --paper: #f7f9fb;
+      --header: #1d2d3a;
+      --header-text: #f4f7f9;
+      --text: #1a2733;
+      --muted: #536673;
+      --line: #d8e0e6;
+      --accent: #dfeaf3;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 30px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+    }
+
+    .header {
+      background: var(--header);
+      color: var(--header-text);
+      padding: 26px 38px 18px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.45rem;
+      letter-spacing: -0.04em;
+    }
+
+    .role {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      margin-top: 16px;
+      margin-bottom: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 26px;
+      font-size: 0.95rem;
+      color: #edf5f8;
+    }
+
+    .section {
+      padding: 0 38px;
+    }
+
+    .section-title {
+      background: #dfe5eb;
+      margin: 20px 0 0;
+      padding: 10px 14px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .summary {
+      padding: 18px 0 0;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      padding-top: 16px;
+    }
+
+    .date {
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .content h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .content ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(180px, 1fr));
+      gap: 20px;
+      padding-top: 18px;
+      padding-bottom: 20px;
+    }
+
+    .skill-box h4 {
+      margin: 0 0 10px;
+      text-transform: uppercase;
+      font-size: 0.96rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .skill-box ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .lang-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 26px;
+      padding-top: 18px;
+      padding-bottom: 22px;
+    }
+
+    .lang {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .bars {
+      display: flex;
+      gap: 6px;
+    }
+
+    .bar {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #d4dce2;
+      border: 1px solid #95a4ae;
+    }
+
+    .bar.filled {
+      background: #213d4e;
+      border-color: #213d4e;
+    }
+
+    .project-entry {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      padding-top: 16px;
+      padding-bottom: 22px;
+    }
+
+    .project-title {
+      font-weight: 700;
+      margin: 0;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .project-desc {
+      margin: 8px 0 0;
+      color: var(--text);
+    }
+
+    @media (max-width: 700px) {
+      .entry, .project-entry {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header, .section {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Rémi Mas</h1>
+      <div class="role">Technicien en Développement Industriel - Bureau d'Étude</div>
+      <div class="meta">
+        <span>✉ remi.mas.1202@gmail.com</span>
+        <span>☎ +33 6 67 09 90 49</span>
+        <span>📍 Toulouse</span>
+        <span>in linkedin.com/in/rémi-mas</span>
+        <span>🚗 Permis B</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">Résumé</h2>
+      <div class="summary">
+        Diplômé d'un BUT Génie Chimique et Génie des Procédés, je suis animé par une véritable passion pour le
+        développement de nouveaux procédés industriels. Curieux et attiré par les défis techniques, j'aime comprendre,
+        expérimenter et transformer une idée en solution concrète. Aujourd'hui, je souhaite mettre ce passionnement au
+        service de projets ambitieux et innovants.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Expériences professionnelles</h2>
+
+      <div class="entry">
+        <div class="date">03/2026 – 08/2026<br>Gaillac, France.</div>
+        <div class="content">
+          <h3>Laboratoires Pierre Fabre, Technicien En Développement Industriel</h3>
+          <ul>
+            <li>Industrialisation d'une chimiothérapie (scale-up laboratoire → pilote → industriel)</li>
+            <li>Développement et fabrication de principes actifs pharmaceutiques (API)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="date">04/2025 – 07/2025<br>Pau, France.</div>
+        <div class="content">
+          <h3>Groupe CVA Wells, Stage Technicien</h3>
+          <ul>
+            <li>Étude intégrale du fluide de forage sur site actif de forage.</li>
+            <li>Analyse et optimisation des fluides de forage.</li>
+            <li>Réalisation d'études rhéologiques et thermiques.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="date">03/2024 – 07/2024<br>Kurume, Japon</div>
+        <div class="content">
+          <h3>KURUME KOSEN, Stage de Recherche - Technicien En Développement I</h3>
+          <ul>
+            <li>Hydrolyse de cellulose par catalyseurs solides acides.</li>
+            <li>Analyse et valorisation de la biomasse cellulosique.</li>
+            <li>Travail au sein d'un laboratoire international de recherche.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Formations</h2>
+
+      <div class="entry">
+        <div class="date">12/2025<br>Toulouse, France.</div>
+        <div class="content">
+          <h3>IUT de Toulouse – Université Paul Sabatier</h3>
+          <p>Bachelor universitaire de technologie (BUT)</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="date">12/2022<br>Toulouse, France.</div>
+        <div class="content">
+          <h3>IUT de Toulouse – Université Paul Sabatier</h3>
+          <p>Diplôme universitaire de technologie (DUT)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-box">
+          <h4>Logiciels</h4>
+          <ul>
+            <li>ProSim</li>
+            <li>ProPhyPlus</li>
+            <li>AutoCAD</li>
+            <li>Pack Office</li>
+          </ul>
+        </div>
+
+        <div class="skill-box">
+          <h4>Développement Industriel</h4>
+          <ul>
+            <li>Développement et optimisation de procédés</li>
+            <li>Industrialisation de procédés</li>
+            <li>Traitement des eaux</li>
+          </ul>
+        </div>
+
+        <div class="skill-box">
+          <h4>Analyses & caractérisation</h4>
+          <ul>
+            <li>Analyses physico-chimiques</li>
+            <li>Analyses rhéologiques</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Langages</h2>
+      <div class="lang-row">
+        <div class="lang">
+          <span>Français</span>
+          <div class="bars">
+            <span class="bar filled"></span>
+            <span class="bar filled"></span>
+            <span class="bar filled"></span>
+            <span class="bar filled"></span>
+            <span class="bar filled"></span>
+          </div>
+        </div>
+
+        <div class="lang">
+          <span>Anglais</span>
+          <div class="bars">
+            <span class="bar filled"></span>
+            <span class="bar filled"></span>
+            <span class="bar filled"></span>
+            <span class="bar filled"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Projets</h2>
+      <div class="project-entry">
+        <div class="date">12/2020 – 07/2021</div>
+        <div>
+          <p class="project-title">Projet De Recherche Tetr'ISS, Paul Sabatier - CNES</p>
+          <p class="project-desc">Travail en équipe sur la faisabilité et la validation pour la Station Spatiale Internationale.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
