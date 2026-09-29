@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rémi Mas - Portfolio Recherche & Innovation Technologique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        header .tagline {
+            font-size: 0.95em;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary);
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .about-text .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .about-image h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: rgba(30, 58, 138, 0.1);
+            padding: 20px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .project-card .category {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            margin-bottom: 15px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--text);
+        }
+
+        .skill-list li:before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding-left: 40px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 20px;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .timeline-item:last-child:after {
+            display: none;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .year {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .timeline-item p {
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+        }
+
+        .contact-section h2 {
+            color: white;
+        }
+
+        .contact-section h2:after {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Hero Section -->
+    <header>
+        <h1>Rémi Mas</h1>
+        <p class="subtitle">Ingénieur BUT GCGP | Recherche & Innovation Technologique</p>
+        <p class="tagline">Spécialisé en génie des procédés, chimie appliquée et optimisation technologique</p>
+        <div class="btn-group">
+            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+            <a href="https://fr.linkedin.com/in/rémi-mas" target="_blank" class="btn btn-secondary">LinkedIn</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <div class="container">
+        <section id="about">
+            <h2>À Propos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Étudiant en Génie Chimique & Génie des Procédés</h3>
+                    <p>
+                        Je suis un jeune ingénieur passionné par <span class="highlight">l'innovation technologique</span> 
+                        et les <span class="highlight">sciences appliquées</span>. Mon parcours en BUT GCGP m'a permis de développer 
+                        une expertise solide en optimisation de procédés, chimie fine et technologies durables.
+                    </p>
+                    <p>
+                        Mon objectif est de contribuer à des projets de recherche ambitieux où je peux 
+                        <span class="highlight">appliquer mes connaissances scientifiques</span> et 
+                        <span class="highlight">participer à l'innovation</span> dans le secteur de la chimie et des technologies vertes.
+                    </p>
+                    <div class="info-box">
+                        <strong>Formation :</strong> BUT Génie Chimique et Génie des Procédés
+                    </div>
+                    <div class="info-box">
+                        <strong>Domaines d'intérêt :</strong> Chimie appliquée, procédés innovants, 
+                        technologies durables, automatisation, data science pour l'optimisation
+                    </div>
+                </div>
+                <div class="about-image">
+                    <h3>🔬 Spécialités</h3>
+                    <p style="margin-bottom: 20px;">
+                        • Génie des procédés<br>
+                        • Chimie fine & appliquée<br>
+                        • Optimisation & simulation<br>
+                        • Technologies vertes<br>
+                        • Contrôle qualité & analyse<br>
+                        • Innovation technologique
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projets">
+            <h2>Projets de Recherche & Académiques</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.05em; color: #64748b;">
+                Voici les projets sur lesquels j'ai travaillé, montrant mon expertise en génie chimique et innovation technologique.
+            </p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="category">BUT GCGP</span>
+                    <h3>Optimisation d'un Procédé de Production</h3>
+                    <p>
+                        Analyse et optimisation d'une chaîne de production chimique. 
+                        Étude des paramètres critiques, modélisation du procédé et recommandations 
+                        pour améliorer le rendement et réduire les coûts.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Chimie appliquée</span>
+                        <span class="tech-tag">Optimisation</span>
+                        <span class="tech-tag">MATLAB</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="category">Recherche</span>
+                    <h3>Synthèse et Caractérisation de Matériaux</h3>
+                    <p>
+                        Travail sur la synthèse et l'analyse physicochimique de nouveaux matériaux. 
+                        Utilisation de techniques spectroscopiques et chromatographiques pour 
+                        caractériser les propriétés et applications potentielles.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Spectroscopie</span>
+                        <span class="tech-tag">Chromatographie</span>
+                        <span class="tech-tag">Analyse chimique</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="category">Innovation</span>
+                    <h3>Procédé Durable & Chimie Verte</h3>
+                    <p>
+                        Conception d'un procédé respectueux de l'environnement avec réduction des déchets. 
+                        Étude comparative avec méthodes conventionnelles et analyse du cycle de vie.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Chimie verte</span>
+                        <span class="tech-tag">Durabilité</span>
+                        <span class="tech-tag">Analyse LCA</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="category">Technique</span>
+                    <h3>Simulation et Modélisation de Procédés</h3>
+                    <p>
+                        Utilisation d'outils de simulation (COMSOL, Aspen Plus) pour modéliser 
+                        des procédés complexes. Validation expérimentale des modèles et optimisation 
+                        des paramètres opératoires.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">COMSOL</span>
+                        <span class="tech-tag">Aspen Plus</span>
+                        <span class="tech-tag">Simulation</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="category">Laboratoire</span>
+                    <h3>Contrôle Qualité & Analyse Instrumentale</h3>
+                    <p>
+                        Mise en place de protocoles de contrôle qualité. Utilisation 
+                        d'appareils analytiques (HPLC, GC, IR) pour valider les spécifications 
+                        de produits chimiques et matériaux.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HPLC</span>
+                        <span class="tech-tag">Chromatographie</span>
+                        <span class="tech-tag">Assurance qualité</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="category">Personnel</span>
+                    <h3>Automatisation et Data Science</h3>
+                    <p>
+                        Exploration de l'application de la data science et du machine learning 
+                        pour l'optimisation des procédés. Automatisation de tâches 
+                        répétitives et analyse prédictive.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Data Science</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Compétences & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🔬 Génie Chimique</h3>
+                    <ul class="skill-list">
+                        <li>Génie des procédés</li>
+                        <li>Thermodynamique appliquée</li>
+                        <li>Chimie fine & appliquée</li>
+                        <li>Réactions chimiques</li>
+                        <li>Transfert de matière & énergie</li>
+                        <li>Chimie verte & durabilité</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🧪 Laboratoire & Analyse</h3>
+                    <ul class="skill-list">
+                        <li>Techniques spectroscopiques</li>
+                        <li>Chromatographie (HPLC, GC)</li>
+                        <li>Analyse physicochimique</li>
+                        <li>Contrôle qualité</li>
+                        <li>Microscopie & imagerie</li>
+                        <li>Sécurité au laboratoire</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>💻 Outils & Logiciels</h3>
+                    <ul class="skill-list">
+                        <li>MATLAB & Simulink</li>
+                        <li>COMSOL Multiphysics</li>
+                        <li>Aspen Plus</li>
+                        <li>Python (calcul scientifique)</li>
+                        <li>Excel & VBA</li>
+                        <li>CAO & DAO</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Données & Innovation</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning basique</li>
+                        <li>Analyse de données</li>
+                        <li>Optimisation numérique</li>
+                        <li>Gestion de projet</li>
+                        <li>Communication scientifique</li>
+                        <li>Résolution de problèmes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Parcours & Expérience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">2024 - Actuellement</span>
+                    <h3>Étudiant en 3ème année - BUT GCGP</h3>
+                    <p>
+                        Formation complète en génie chimique avec modules spécialisés en procédés, 
+                        chimie appliquée, simulation et innovation technologique.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">2023 - 2024</span>
+                    <h3>Projets d'Innovation & Recherche</h3>
+                    <p>
+                        Participation à plusieurs projets de recherche académique mettant en avant 
+                        les dernières technologies et innovations dans le secteur chimique.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">2022 - 2023</span>
+                    <h3>Stages & Expériences Pratiques</h3>
+                    <p>
+                        Acquisition d'expérience en milieu professionnel avec application pratique 
+                        des connaissances théoriques en génie des procédés et chimie.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">2021 - 2022</span>
+                    <h3>Formation Fondamentale - BUT GCGP</h3>
+                    <p>
+                        Début du cursus BUT avec acquisition des bases solides en chimie, 
+                        thermodynamique et génie des procédés.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container">
+        <section id="contact" class="contact-section">
+            <h2>Vous recrutez ? Parlons-en !</h2>
+            <p style="font-size: 1.1em; margin-top: 20px; opacity: 0.95;">
+                Je suis à la recherche d'opportunités en R&D, innovation technologique 
+                et recherche scientifique. N'hésitez pas à me contacter !
+            </p>
+            <div class="contact-links">
+                <a href="https://fr.linkedin.com/in/rémi-mas" class="contact-link" target="_blank">
+                    💼 LinkedIn
+                </a>
+                <a href="mailto:contact@remi-mas.fr" class="contact-link">
+                    ✉️ Email
+                </a>
+                <a href="https://github.com/reregteul" class="contact-link" target="_blank">
+                    💻 GitHub
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Rémi Mas - Portfolio Recherche & Innovation. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
